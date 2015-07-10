@@ -189,7 +189,10 @@ describe Mongoid::Tree::Ordering do
         root = node(:root); root.parent = node(:child); root.save!
         subchild = node(:subchild); subchild.parent = root; subchild.save!
 
-        expect(subchild.ancestors.to_a).to eq([child, root])
+        child.reload
+        root.reload
+
+        expect(subchild.ancestors.to_a).to eq([root, child])
       end
     end
   end
