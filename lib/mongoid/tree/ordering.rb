@@ -43,14 +43,6 @@ module Mongoid
       end
 
       ##
-      # Returns a chainable criteria for this document's ancestors
-      #
-      # @return [Mongoid::Criteria] Mongoid criteria to retrieve the document's ancestors
-      def ancestors
-        base_class.unscoped { super }
-      end
-
-      ##
       # Returns siblings below the current document.
       # Siblings with a position greater than this document's position.
       #
